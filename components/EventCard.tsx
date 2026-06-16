@@ -1,9 +1,10 @@
-import { EventItem } from "@/lib/contants";
+import { EventItem } from "@/lib/constants";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const EventCard = ({ slug, title, image, date, time, location }: EventItem) => {
+  
   return (
     <Link
       href={`/events/${slug}`}
@@ -12,6 +13,7 @@ const EventCard = ({ slug, title, image, date, time, location }: EventItem) => {
     >
       <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
         <Image
+          loading="eager"
           src={image}
           alt={title}
           fill

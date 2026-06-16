@@ -1,8 +1,12 @@
 import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
-import { events } from "@/lib/contants";
+import { IEvent } from "@/database/event.model";
 
-const Home = () => {
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+const Home =async () => {
+  const response = await fetch(`${BASE_URL}/api/events`)
+  const {events} = await response.json()
+  console.log(events)
   return (
     <section className="">
       <div>
@@ -23,8 +27,8 @@ const Home = () => {
       <section className="w-[90%] l mx-auto">
         <h3 className="text-4xl text-center p-10 mt-14">Featured Events</h3>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full">
-          {events.map((event) => (
-            <li key={event.slug}>
+          {events?.map((event:IEvent) => (
+            <li key={event?.slug}>
               <EventCard {...event} />
             </li>
           ))}

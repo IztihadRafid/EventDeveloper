@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import {v2 as cloudinary} from "cloudinary"
 
 
-
+// POSTING EVENT DATA
 export async function POST(req: NextRequest) {
     try {
         await connectDB();
@@ -41,5 +41,18 @@ export async function POST(req: NextRequest) {
             message: "Event Creation Failed", error: e instanceof Error ? e.message : "Unknown"
         }, { status: 500 })
 
+    }
+}
+
+
+// GETTING EVENTT DATA
+export async function GET() {
+    try{
+        await connectDB();
+        const  events = await Event.find().sort({createdAt: -1});
+        return NextResponse.json({message: "Events Fetched Successfully",events},{status:200})
+    }
+    catch(e){
+        return NextResponse.json({message:"Event Fetching Failed", error:e },{status:500})
     }
 }

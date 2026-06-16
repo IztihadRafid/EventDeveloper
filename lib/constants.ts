@@ -1,57 +1,74 @@
-export const events: EventItem[] = [
-  {
-    slug: "react-conf-2026",
-    image: "/images/event1.webp",
-    title: "React Conf 2026",
-    location: "San Francisco, CA",
-    date: "2026-03-15",
-    time: "09:00",
+export interface EventItem {
+  slug: string;
+  image: string;
+  title: string;
+  location: string;
+  date: string;
+  time: string;
 
-    description: "The biggest React community conference featuring core team updates, performance insights, and ecosystem talks.",
-    overview: "A full-day event for React developers to explore the future of React and modern frontend architecture.",
-    venue: "Moscone Center",
-    mode: "offline",
-    audience: "Frontend Developers, React Engineers",
-    agenda: ["Keynote", "React 2026 Updates", "Performance Optimization", "Networking"],
-    organizer: "React Community",
-    tags: ["react", "frontend", "javascript", "conference"],
-  },
+  description: string;
+  overview: string;
+  venue: string;
+  mode: "offline" | "online" | "hybrid";
+  audience: string;
+  agenda: string[];
+  organizer: string;
+  tags: string[];
+}
+// export const events: EventItem[] = [
+//   {
+//     slug: "react-conf-2026",
+//     image: "/images/event1.webp",
+//     title: "React Conf 2026",
+//     location: "San Francisco, CA",
+//     date: "2026-03-15",
+//     time: "09:00",
 
-  {
-    slug: "nextjs-summit",
-    image: "/images/event2.webp",
-    title: "Next.js Summit",
-    location: "Austin, TX",
-    date: "2026-04-22",
-    time: "10:00",
+//     description: "The biggest React community conference featuring core team updates, performance insights, and ecosystem talks.",
+//     overview: "A full-day event for React developers to explore the future of React and modern frontend architecture.",
+//     venue: "Moscone Center",
+//     mode: "offline",
+//     audience: "Frontend Developers, React Engineers",
+//     agenda: ["Keynote", "React 2026 Updates", "Performance Optimization", "Networking"],
+//     organizer: "React Community",
+//     tags: ["react", "frontend", "javascript", "conference"],
+//   },
 
-    description: "Explore the latest features of Next.js including server actions, rendering strategies, and full-stack capabilities.",
-    overview: "A summit focused on modern full-stack development using Next.js.",
-    venue: "Austin Convention Center",
-    mode: "offline",
-    audience: "Full Stack Developers",
-    agenda: ["Opening Talk", "App Router Deep Dive", "Server Actions", "Case Studies"],
-    organizer: "Vercel Community",
-    tags: ["nextjs", "react", "fullstack", "web"],
-  },
+//   {
+//     slug: "nextjs-summit",
+//     image: "/images/event2.webp",
+//     title: "Next.js Summit",
+//     location: "Austin, TX",
+//     date: "2026-04-22",
+//     time: "10:00",
 
-  {
-    slug: "javascript-world",
-    image: "/images/event3.webp",
-    title: "JavaScript World Conference",
-    location: "New York, NY",
-    date: "2026-05-08",
-    time: "08:30",
+//     description: "Explore the latest features of Next.js including server actions, rendering strategies, and full-stack capabilities.",
+//     overview: "A summit focused on modern full-stack development using Next.js.",
+//     venue: "Austin Convention Center",
+//     mode: "offline",
+//     audience: "Full Stack Developers",
+//     agenda: ["Opening Talk", "App Router Deep Dive", "Server Actions", "Case Studies"],
+//     organizer: "Vercel Community",
+//     tags: ["nextjs", "react", "fullstack", "web"],
+//   },
 
-    description: "A global JavaScript event covering modern JS, frameworks, and advanced engineering patterns.",
-    overview: "Meet JavaScript experts and learn modern development practices.",
-    venue: "Javits Center",
-    mode: "offline",
-    audience: "JavaScript Developers",
-    agenda: ["ESNext Features", "Architecture Patterns", "Framework Wars", "Q&A"],
-    organizer: "JS World Org",
-    tags: ["javascript", "web", "conference"],
-  },
+//   {
+//     slug: "javascript-world",
+//     image: "/images/event3.webp",
+//     title: "JavaScript World Conference",
+//     location: "New York, NY",
+//     date: "2026-05-08",
+//     time: "08:30",
+
+//     description: "A global JavaScript event covering modern JS, frameworks, and advanced engineering patterns.",
+//     overview: "Meet JavaScript experts and learn modern development practices.",
+//     venue: "Javits Center",
+//     mode: "offline",
+//     mode: "JavaScript Developers",
+//     agenda: ["ESNext Features", "Architecture Patterns", "Framework Wars", "Q&A"],
+//     organizer: "JS World Org",
+//     tags: ["javascript", "web", "conference"],
+//   },
 
   {
     slug: "ai-hackathon-2026",
