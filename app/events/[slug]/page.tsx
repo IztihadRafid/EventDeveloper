@@ -12,6 +12,9 @@ import {
   ClipboardList,
 } from "lucide-react";
 import BookEvent from "@/components/BookEvent";
+import { IEvent } from "@/database/event.model";
+import { getSimilarEventBySlug } from "@/lib/actions/event.actions";
+import EventCard from "@/components/EventCard";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -24,11 +27,12 @@ const EventDetailsPage = async ({
 
   const request = await fetch(`${BASE_URL}/api/events/${slug}`);
   const { event } = await request.json();
-let bookings=10
+
   if (!event) {
     return notFound();
   }
-  
+  const bookings=10
+  const similarEvents:IEvent[] = await getSimilarEventBySlug(slug);
 
   return (
    <section>
@@ -230,6 +234,17 @@ let bookings=10
 
     <BookEvent />
   </div>
+</section>
+
+<section>
+    <h2>Similar Events</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 mb-6 w-[90%] mx-auto">
+        {
+            similarEvents.length>0 && similarEvents.map((similarEvent)=>(
+                <div className="w-96" key={similarEvent._id}><EventCard {...similarEvent}></EventCard></div>
+            ))
+        }
+    </div>
 </section>
    </section>
   );
